@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            background-color: #dff0d8;
+            padding: 10px;
+            border-radius: 4px;
+            color: #3c763d;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/patient/info">
+        <label>Enter patient's first name</label>
+        <input type="text" name="firstName" required />
+        <label>Enter patient's last name</label>
+        <input type="text" name="lastName" required />
+        <label>Enter patient's age</label>
+        <input type="number" name="age" required />
+        <label>Enter patient's disease</label>
+        <input type="text" name="disease" required />
+        <label>Enter doctor ID</label>
+        <input type="text" name="doctor" required />
+        <button type="submit">Submit</button>
+    </form>
+
+    <% if (locals.name) { %>
+        <div class="message">
+            <p><%= name %>'s details added successfully</p>
+        </div>
+    <% } %>
+</body>
+</html>
